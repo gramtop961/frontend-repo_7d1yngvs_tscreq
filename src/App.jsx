@@ -1,71 +1,42 @@
+import React from 'react'
+import Header from './components/Header'
+import Sidebar from './components/Sidebar'
+import Hero from './components/Hero'
+import Cards from './components/Cards'
+import GlassTable from './components/GlassTable'
+import RightDrawer from './components/RightDrawer'
+import Footer from './components/Footer'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+    <div className="min-h-screen bg-slate-950 text-white relative">
+      <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_-10%_-10%,rgba(45,212,191,0.12),transparent),radial-gradient(1200px_600px_at_110%_-10%,rgba(20,184,166,0.10),transparent)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),transparent_20%)]" />
 
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
+      <Header />
+
+      <main className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex gap-6">
+          <Sidebar />
+
+          <div className="flex-1 py-6">
+            <Hero />
+
+            <div className="mt-6 space-y-6">
+              <Cards />
+              <GlassTable />
             </div>
 
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
-          </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
+            <Footer />
           </div>
         </div>
-      </div>
+      </main>
+
+      <RightDrawer />
+
+      {/* Floating side elements for depth */}
+      <div className="pointer-events-none fixed left-4 bottom-24 w-40 h-40 rounded-full bg-teal-400/10 blur-3xl" />
+      <div className="pointer-events-none fixed right-24 top-24 w-56 h-56 rounded-full bg-emerald-400/10 blur-3xl" />
     </div>
   )
 }
